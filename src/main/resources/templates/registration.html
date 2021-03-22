@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="hu"
+	  layout:decorator="layouts/index"
+	  xmlns:layout="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.w3.org/1999/xhtml"
+	  xmlns:sec="http://www.w3.org/1999/xhtml"
+>
+
+    <body>
+
+        <div layout:fragment="content">
+
+            <form method="POST"  sec:authorize="isAnonymous()" th:action="@{/reg}" th:object="${user}">
+
+                <h1 th:text="#{regist.title}">Regisztráció</h1>
+
+				<input type="text" pattern="[A-Z a-z0-9]{4,}" th:title="#{regist.patterntitle.username}" th:attr="placeholder=#{regist.placeholder.username}" th:field="*{username}" required="true"/>
+				<input type="email" th:attr="placeholder=#{regist.placeholder.email}" th:field="*{email}" required="true"/>
+				<input type="password" pattern="{6,}" th:attr="placeholder=#{regist.placeholder.password}" th:field="*{password}" required="true" autocomplete="true"/>
+				<input type="password" pattern="{6,}" th:attr="placeholder=#{regist.placeholder.confirmpassword}" th:field="*{confirmPassword}" required="true" autocomplete="true"/>
+
+				<button type="submit" value="Submit" th:text="#{regist.send}" >Küldés!</button>
+			</form>
+
+			<div th:if="${param.errorMessage}">
+				<p th:text="#{${param.errorMessage[0]}}" class="message"></p>
+			</div>
+
+        </div>
+
+    </body>
+</html>

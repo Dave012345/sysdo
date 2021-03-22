@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="hu"
+      layout:decorator="layouts/index"
+      xmlns:layout="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymleaf.org"
+>
+
+    <head>
+        <link rel="stylesheet" type="text/css" th:href="@{../css/design.css}" />
+        <script th:src="@{../js/navmenu.js}"></script>
+        <link rel="icon" th:href="@{../images/system/laptop-icon.svg}" type="imagename/svg" size="16x16" />
+    </head>
+
+
+    <body>
+
+        <div layout:fragment="content">
+
+            <h2 th:if="${dvn}!=null" th:text="${dvn}"></h2>
+
+            <table th:each="device : ${devicetype}" class="prof">
+                <tbody>
+                <tr>
+                    <th>
+                        <h3 th:text="${device.devicename}">Device</h3>
+                    </th>
+                </tr>
+                <tr class="row">
+                    <td class="col-sm-6" id="tdiv1">
+                        <p th:text="${device.maker} + ' ' + ${device.model}">Maker model</p>
+                        <p th:text="${device.price} + ' - Ft'">Price</p>
+                        <p th:text="${device.location}">Location</p>
+                        <p th:text="${#dates.format(device.posted, 'yyyy-MM-dd HH:mm')}">Posted</p>
+                    </td>
+                    <td class="col-sm-6" id="tdiv2">
+                        <p th:text="${device.user.username}">User</p>
+                        <a th:href="@{tel:}+${device.phoneNumber}" th:text="${device.phoneNumber}">User</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p th:text="${device.shortDescription}">Short_Description</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p th:text="${device.longDescription}">Long_Description</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td th:switch="${device.imagename.length()}">
+                        <img th:case="'0'" th:src="@{../images/system/sysdo-}+${device.devicename}+'.jpg'" alt=" filename nem elérhető" />
+                        <img th:case="*" th:src="@{/image?src=}+${device.imagename}" alt=" filename nem elérhető" />
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <form class="pagination" method="get" th:action="@{/device/}+${dvn}">
+                <li th:each=" i : ${sumOfPages}">
+                    <button th:id="${i}" name="page" th:value="${i}" th:text="${i}"></button>
+                </li>
+            </form>
+
+            <script language="JavaScript">
+                pagination();
+            </script>
+        </div>
+
+    </body>
+</html>

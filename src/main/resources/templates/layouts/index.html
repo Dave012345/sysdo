@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymleaf.org"
+      xmlns:layout="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://www.w3.org/1999/xhtml"
+>
+
+    <head>
+        <title>Sysdo</title>
+        <link rel="stylesheet" type="text/css" th:href="@{css/design.css}" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+        <link rel="icon" th:href="@{images/system/laptop-icon.svg}" type="imagename/svg" size="16x16" />
+        <script th:src="@{js/navmenu.js}"></script>
+        <meta name="google-site-verification" content="qTF9-Hv93cESmBpuWC8YfXz9I1cvlhp7UkZ7QrlKz_o" />
+        <meta name="robots" content="index, follow"/>
+        <meta name="revisits-after" content="days"/>
+        <meta charset="UTF-8" />
+        <meta name="description" th:attr="content=#{metadata.description}" />
+        <meta name="keywords" content="Laptop, Phone, Mobile, Tab, Tablet, Tablet PC, TV, Smart" />
+        <meta name="author" content="David" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="theme-color" content="#02304f" />
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, shrink-to-fit=yes" />
+    </head>
+
+    <body>
+
+        <header>
+            <a th:href="@{/}">
+                <p class="title">Sysdo - <span>Sell Your Smart Devices Online</span></p>
+            </a>
+			
+            <button onmouseover="openMenu()" class="menu mobile" name="menu"><i class="fa fa-bars"></i></button>
+            <nav class="mobile navMenuM">
+				<div class="mobile">
+					<form sec:authorize="isAnonymous()" th:action="@{/index}" name="login" method="POST" style="margin-bottom: 10px;">
+						
+						<input class="br101000 login" type="text" th:attr="placeholder=#{loginform.inputforemail.placeholder}" name="username" required="true" />
+						<input class="br001010 login" type="password" th:attr="placeholder=#{loginform.inputforpassword.placeholder}" name="password" required="true" />
+						<button class="login" name="log" type="submit" th:text="#{loginform.send}">Belépés</button>
+
+						<p th:if="${param.error}" th:text="#{loginform.error}" class="message">Hibás felhasználói név és jelszó</p>
+						<div th:if="${param.logout}" th:text="#{loginform.logout}" class="notice">Sikeresen kijelentkeztél</div>
+					</form>
+				</div>
+                <div class="mobile" sec:authorize="isAuthenticated()">
+                    <h3 sec:authentication="name">Anonymous </h3>
+                    <form sec:authorize="isAuthenticated()" id="formlogout" th:action="@{/logout}" method="post" class="form-inline">
+                        <a class="logout" href="javascript:{}" onclick="document.getElementById('formlogout').submit(); return false;" th:text="#{logout}">Kijelentkezés</a>
+                    </form>
+                </div>
+
+				<div class="mobile">
+					<a th:href="@{/device/Laptop}" class="fa fa-laptop"></a>
+					<a th:href="@{/device/Tab}" class="fa fa-tablet"></a>
+					<a th:href="@{/device/Smart-Tv}" class="fa fa-tv"></a>
+					<a th:href="@{/device/Smart-Phone}" class="fa fa-mobile"></a>
+				</div>
+				
+                <div id="balDiv2" class="mobile">
+                    <a href="/" th:text="#{atag.mainpage}" class="fa fa-home">Főoldal</a>
+                    <a href="/profile" sec:authorize="isAuthenticated()" th:text="#{atag.profile}" class="fa fa-user">Profil</a>
+                    <a href="/registration" sec:authorize="isAnonymous()" th:text="#{atag.regist}" class="fa fa-user-plus">Regisztráció</a>
+                    <a href="/upload" th:text="#{atag.upload}" class="fa fa-upload">Feltöltés</a>
+                </div>
+				<div class="mobile">
+                    <form method="get" th:action="@{/search}">
+                        <select class="searchSelect" name="devicename" th:value="*{devicename}">
+                            <option value="Smart-Phone">Smart-Phone</option>
+                            <option value="Smart-Tv">Smart-Tv</option>
+                            <option value="Laptop">Laptop</option>
+                            <option value="Tab">Tab</option>
+                            <option value="all">all devices</option>
+                        </select>
+
+                        <select class="searchSelect" name="ob" th:value="*{ob}">
+                            <option value="ASC" th:text="#{search.price.asc}">Ár növekvő</option>
+                            <option value="DESC" th:text="#{search.price.desc}">Ár csökkenő</option>
+                        </select>
+
+                        <input class="searchInput" type="text" th:attr="placeholder=#{search.placeholder.keywords}" name="keywords" th:value="*{keywords}" autofocus="true" />
+
+                        <button class="searchButton" name="search" type="submit"><i class="fa fa-search"></i></button>
+                    </form>
+                </div>
+            </nav>
+            <nav class="navMenu pcTab">
+                <a th:href="@{/device/Laptop}" class="fa fa-laptop">Laptop</a>
+                <a th:href="@{/device/Smart-Phone}" class="fa fa-mobile">Smart-Phone</a>
+                <a th:href="@{/device/Tab}" class="fa fa-tablet">Tab</a>
+                <a th:href="@{/device/Smart-Tv}" class="fa fa-tv">Smart-Tv</a>
+            </nav>
+        </header>
+
+        <div id="All">
+            <div id="inAll">
+
+                <div id="balDiv" class="pcTab">
+
+                    <div sec:authorize="isAnonymous()">
+
+                        <form th:action="@{/index}" name="login" method="POST">
+
+                            <legend th:text="#{loginform.title}">Bejelentkezés:</legend>
+
+                            <input type="text" th:attr="placeholder=#{loginform.inputforemail.placeholder}" name="username" required="true" />
+                            <input type="password" th:attr="placeholder=#{loginform.inputforpassword.placeholder}" name="password" required="true" />
+                            <button type="submit" th:text="#{loginform.send}">Belépés</button>
+
+                            <p th:if="${param.error}" th:text="#{loginform.error}" class="message">Hibás felhasználói név és jelszó</p>
+
+                            <div th:if="${param.logout}" th:text="#{loginform.logout}" class="notice">Sikeresen kijelentkeztél</div>
+                        </form>
+
+                        <a href="/registration" th:text="#{atag.regist}" class="fa fa-user-plus">Regisztráció</a>
+                    </div>
+
+                    <div sec:authorize="isAuthenticated()">
+                        <h3 id="udv" sec:authentication="name">Anonymous </h3>
+                        <form sec:authorize="isAuthenticated()" id="frmlogout" th:action="@{/logout}" method="post" class="form-inline">
+                            | <a href="javascript:{}" onclick="document.getElementById('frmlogout').submit(); return false;" th:text="#{logout}">Kijelentkezés</a>
+                        </form>
+                    </div>
+
+                    <a href="/upload" th:text="#{atag.upload}" class="fa fa-upload">Feltöltés</a>
+                    <a href="/profile" sec:authorize="isAuthenticated()" th:text="#{atag.profile}" class="fa fa-user">Profil</a>
+                    <a href="/" th:text="#{atag.mainpage}" class="fa fa-home">Főoldal</a>
+
+
+                </div>
+
+                <div id="tartalom">
+                    <div layout:fragment="content">
+                        <h1>Main</h1>
+
+                        <div th:if="${param.message}">
+                            <div th:text="#{${param.message[0]}}" class="notice">Sikeresen regisztráció</div>
+                        </div>
+
+                        <table th:each="device : ${device}" class="prof">
+                            <tbody>
+                                <tr>
+                                    <th>
+                                        <h3 th:text="${device.devicename}">Device</h3>
+                                    </th>
+                                </tr>
+                                <tr class="row">
+                                    <td class="col-sm-6" id="tdiv1">
+                                        <p th:text="${device.maker} + ' ' + ${device.model}">Maker model</p>
+                                        <p th:text="${device.price} + ' - Ft'">Price</p>
+                                        <p th:text="${device.location}">Location</p>
+                                        <p th:text="${#dates.format(device.posted, 'yyyy-MM-dd HH:mm')}">Posted</p>
+                                    </td>
+                                    <td class="col-sm-6" id="tdiv2">
+                                        <p th:text="${device.user.username}">User</p>
+                                        <a th:href="@{tel:}+${device.phoneNumber}" th:text="${device.phoneNumber}">User</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p th:text="${device.shortDescription}">Short_Description</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p th:text="${device.longDescription}">Long_Description</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td th:switch="${device.imagename.length()}">
+                                        <img th:case="'0'" th:src="@{images/system/sysdo-}+${device.devicename}+'.jpg'" alt=" filename nem elérhető" />
+                                        <img th:case="*" th:src="@{/image?src=}+${device.imagename}" alt=" filename nem elérhető" />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <form class="pagination" method="get" action="/">
+                            <li th:each=" i : ${sumOfPages}">
+                                <button th:id="${i}" name="page" th:value="${i}" th:text="${i}"></button>
+                            </li>
+                        </form>
+
+                        <script language="JavaScript">
+                            pagination();
+                        </script>
+
+                    </div>
+                </div>
+
+                <div id="jobbDiv" class="pcTab">
+                    <div>
+                        <form method="get" th:action="@{/search}">
+                            <select class="searchSelect" name="devicename" th:value="*{devicename}">
+                                <option value="Smart-Phone">Smart-Phone</option>
+                                <option value="Smart-Tv">Smart-Tv</option>
+                                <option value="Laptop">Laptop</option>
+                                <option value="Tab">Tab</option>
+                                <option value="all">all devices</option>
+                            </select>
+
+                            <select class="searchSelect" name="ob" th:value="*{ob}">
+                                <option value="ASC" th:text="#{search.price.asc}">Ár növekvő</option>
+                                <option value="DESC" th:text="#{search.price.desc}">Ár csökkenő</option>
+                            </select>
+
+                            <input class="searchInput" type="text" th:attr="placeholder=#{search.placeholder.keywords}" name="keywords" th:value="*{keywords}" autofocus="true" />
+
+                            <button class="searchButton" type="submit"><i class="fa fa-search"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

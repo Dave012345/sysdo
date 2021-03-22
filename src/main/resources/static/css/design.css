@@ -1,0 +1,1093 @@
+
+/*---------------------------------------------!SYSDO---------------------------------------------------*/
+html, body{
+    height: 100%;
+	width: 100%;
+}
+
+body {
+    background: #989fb1;
+    font-family: sans-serif, Arial;
+    font-size: 100%;
+    line-height: normal;
+    margin: 0;
+    text-align: left;
+}
+
+a:active{
+	color:orangered;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
+    display: block;
+}
+
+p,h3,td{
+	color:#989fb1;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    margin: 5px;
+    line-height: normal;
+}
+
+h1 {
+    font-size: 200%;
+}
+
+h3, .h3 {
+    font-size: 1.75rem;
+	margin-top:0px;
+}
+h3 {
+    font-size: 200%;
+}
+h3#udv {
+    text-align: center;
+    font-family: fantasy;
+    color: #9fafb9;
+    margin: auto;
+}
+
+p {
+    line-height: normal;
+}
+
+tr {
+    padding: inherit;
+}
+
+td {
+    padding: 10px 0px;
+    border-bottom: solid 1px #022945;
+}
+
+.row {
+	display:flex;
+}
+
+div#sr{
+    display:none;
+}
+
+.blueBlackInput{
+	background: linear-gradient(black, transparent);
+    color: #989fb1;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    margin-bottom: 2px;
+    width: 100%;
+    font-weight: bold;
+}
+
+
+
+.right{
+	float:right;
+}
+.left{
+	float:left;
+}
+.br101000{
+	border-radius:10px 10px 0px 0px;
+}
+.br001010{
+	border-radius:0px 0px 10px 10px;
+}
+/*-------------------------------------HEADER---------------------------------*/
+
+header {
+    background: linear-gradient(0deg, #000, #023456);
+    box-shadow: 0px 2px 3px 2px #001831;
+    height: fit-content;
+    color: #989fb1;
+    font-size: 100%;
+}
+
+nav.navMenuM {
+    display: none;
+}
+
+header p.title {
+    float: left;
+    height: fit-content;
+    text-align: center;
+    font-size: 200%;
+    font-weight: bold;
+    padding: 10px;
+	margin:auto;
+}
+
+header p.title span {
+    color: #989fb1;
+    font-size: 60%;
+    font-weight: normal;
+	vertical-align:middle;
+}
+
+button.menu{
+	display:none;
+}
+
+header nav {
+    text-align: center;
+    max-height: 100%;
+    float: right;
+}
+
+header nav a {
+    color: #989fb1;
+    padding: 20px 30px;
+    float: right;
+    display: block;
+    font-size: 120%;
+    text-align: center;
+    text-decoration: none;
+}
+
+a.fa-tv:after {
+    content: "\f26c";
+    padding-left: 20px;
+    font-size: xx-large;
+}
+
+a.fa-tablet:after {
+    content: "\f10a";
+    padding-left: 20px;
+    font-size: xx-large;
+}
+
+a.fa-mobile:after {
+    content: "\f10b";
+    padding-left: 20px;
+    font-size: xx-large;
+}
+
+a.fa-laptop:after {
+    content: "\f109";
+    padding-left: 20px;
+    font-size: xx-large;
+}
+
+a.fa-tv:before {
+    content: none;
+}
+
+a.fa-tablet:before {
+    content: none;
+}
+
+a.fa-mobile:before {
+    content: none;
+}
+
+a.fa-laptop:before {
+    content: none;
+}
+
+.fa:before{
+	padding:inherit;
+}
+
+header nav a:hover {
+    background: linear-gradient(45deg, #000, #023456);
+    opacity: 0.8;
+    color: orangered;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+header nav a:active {
+    background: #001831;
+    opacity: 0.8;
+}
+
+#keres {
+    display: none;
+}
+
+.mobile{
+	display:none;
+}
+
+.pcTab{
+	display:block;
+}
+.navMenu{
+	display:flex;
+}
+
+@media only screen and (max-width: 581px) {
+	.mobile{
+		display:block;
+	}
+	
+	.pcTab{
+		display:none;
+	}
+	
+	.login{
+		width:90%;
+		border: solid 0.1px #757575;
+		padding: 5px;
+		margin: 2px;
+		color:#757575;
+	}
+	
+	input.login {
+		background: #023456;
+	}
+	
+	button.login {
+		background: linear-gradient(0deg, black, transparent);
+		font-weight: bold;
+		border-radius: 10px;
+		cursor: pointer;
+	}
+	
+	a.logout{
+		width: 80%;
+		height: 25px;
+		margin: auto;
+		float: unset;
+		padding: 5px;
+		margin-bottom: 10px;
+		color: #9ca6ac;
+		background: #023456;
+		border: solid 1px #9ca6ac;
+		border-radius: 50px;
+	}
+	
+	header {
+        background:#001831;
+        box-shadow: 0px 2px 3px 2px #023456;
+        margin-bottom: 20px;
+        font-size: 80%;
+        line-height: 1;
+    }
+	
+	button.menu{
+	    display: block;
+		width: 20%;
+		color: #b4b4b4;
+		background: linear-gradient(black, transparent);
+		border: none;
+		font-size:260%;
+		cursor: pointer;
+	}
+
+	button.menu.mobile.active {
+        color: orangered;
+    }
+
+    header nav {
+        width: 100%;
+        overflow: hidden;
+        float: none;
+		display:none
+    }
+
+    header nav a {
+        background: #023456;
+        color: #c1c1c1;
+        width: 24%;
+		margin:0.5%;
+        padding: 10px;
+        display: block;
+        float: left;
+    }
+
+    header p.title {
+        background: linear-gradient(black, transparent);
+        width: 80%;
+        height: fit-content;
+        font-size: 150%;
+        float: left;
+        text-align: center;
+    }
+}
+
+/*---------------------------------------ALL-------------------------------------*/
+
+#All {
+    background: black;
+    box-shadow: 0px 0px 10px 5px #001831;
+    height: 90%;
+    width: 90%;
+    margin: 1.5% auto;
+    border-radius: 10px;
+    padding: 5px;
+    font-size: 100%;
+}
+
+#inAll {
+    height: 100%;
+	width: 100%;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px 3px #001831;
+    background: linear-gradient(45deg, #000, #023456);
+	display:inline-flex;
+}
+
+/**********************---------------BAL_DIV-----------------------*********************/
+#balDiv {
+    background: linear-gradient(45deg, #000, #023456);
+	width:22.5%;
+    padding:10px 0px;
+    overflow: auto;
+}
+#balDiv2 {
+    display:none;
+}
+
+#balDiv legend {
+    font-size: inherit;
+	padding:10px;
+	margin:auto;
+}
+
+
+#balDiv form {
+    color: #c1c1c1;
+    text-align: center;
+    width: 100%;
+}
+
+#balDiv button, input {
+    width: 90%;
+	padding:5px;
+    background: #e8e8e8;
+}
+
+#balDiv button {
+    background: linear-gradient(180deg, #000, #023456);
+    box-shadow: 0px 0px 2px 0px black;
+    color: #989fb1;
+	margin: 10px auto;
+    border: none;
+    border-radius: 5px;
+}
+
+#balDiv button:hover {
+    background: linear-gradient(0deg, #000, #023456);
+    color: orangered;
+}
+
+#balDiv #close:hover {
+    background: radial-gradient(#00090e 55%, orangered);
+    color: orangered;
+}
+
+#balDiv a {
+    width: 100%;
+    margin-top: 10px;
+    padding: 20px 20px;
+    color: #9fafb9;
+	text-decoration:none;
+}
+
+#balDiv a:hover {
+    opacity: 0.8;
+    color: orangered;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#balDiv a:active {
+    background: #001831;
+    opacity: 0.8;
+}
+
+#keres {
+    visibility: hidden;
+}
+
+/********************-TARTAlOM-**********************/
+
+
+#tartalom::-webkit-scrollbar{
+	width:5px;
+	height:0px;
+}
+#tartalom::-webkit-scrollbar-button{
+	color:orangered;
+	background:#011d30;
+	border:1px #011e31 solid;
+}
+#tartalom::-webkit-scrollbar-button:hover{
+	background:orangered;
+}
+#tartalom::-webkit-scrollbar-thumb{
+	background:#023456;
+}
+#tartalom::-webkit-scrollbar-thumb:hover{
+	background:orangered;
+}
+#tartalom::-webkit-scrollbar-track{
+	background:#040b20;
+}
+
+
+
+.fa.fa-windows {
+    float: right;
+    font-size: 260%;
+    margin: 10px;
+}
+.fa.fa-android {
+    float: right;
+    font-size: 260%;
+    margin: 10px;
+}
+.fa.fa-apple {
+    float: right;
+    font-size: 260%;
+    margin: 10px;
+}
+
+#tartalom {
+    height: 100%;
+	width:55%;
+    background: linear-gradient(180deg, #ffffff, #4a3f3b);
+    color: #023456;
+    overflow: scroll;
+    padding: 20px 20px;
+}
+
+#tdiv1 {
+    text-align: left;
+    float: left;
+    height: auto;
+    flex-direction: column;
+    padding: 5px;
+    border: solid 1px #022b47;
+    border-left: none;
+}
+
+#tdiv2 {
+    text-align: right;
+    float: right;
+    height: auto;
+    flex-direction: column;
+    padding: 5px;
+    border: solid 1px #022b47;
+    border-right: none;
+}
+
+a.fa.fa-phone {
+    text-shadow: 1px 1px 1px black;
+}
+
+#tartalom p {
+    color: #e8e8e8;
+    font-size: 120%;
+    font-family: serf;
+    margin: 10px auto;
+}
+
+#tartalom form {
+    text-align: center;
+    margin: 20px auto 45px auto;
+    padding:10px;
+    width: 80%;
+    color: #023456;
+    background: #c1c1c1;
+    border-top-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
+#tartalom form.pagination {
+    list-style: none;
+    border-radius:0px;
+    margin: auto;
+    width: 60%;
+    padding: 0px;
+    background: none;
+    overflow:auto;
+    display:flex;
+
+}
+
+#tartalom form.pagination::-webkit-scrollbar-thumb{
+	background:#023456;
+	border-radius:4px;
+}
+#tartalom form.pagination::-webkit-scrollbar-thumb:hover{
+	background:orangered;
+}
+#tartalom form.pagination::-webkit-scrollbar-track{
+	background:#081635;
+	border-radius:4px;
+}
+
+#tartalom form.pagination li {
+    display: inline-block;
+    margin:auto;
+}
+
+#tartalom form.pagination li button {
+    margin: auto;
+    background: none;
+    border: solid 1px;
+    border-radius: 4px;
+    width:auto;
+    height:auto;
+}
+
+#tartalom legend {
+    text-align: center;
+    font-weight: 900;
+    font-size: 1.7rem;
+    margin-bottom: unset;
+    padding: 15px;
+    overflow: auto;
+}
+
+#profileform {
+    background: unset;
+    text-align: center;
+}
+
+#tartalom input {
+    margin: 0px auto 10px auto;
+    height: 35px;
+    width: 90%;
+}
+
+#tartalom button {
+    margin: 10px;
+    height: 30px;
+    width: 40%;
+    color: #023456;
+    line-height: normal;
+    font-weight: 900;
+}
+
+#tartalom button:hover {
+    color: #ff4500;
+    font-size:120%;
+}
+
+.prof {
+    background: linear-gradient(45deg, #000, #023456);
+    color: #989fb1;
+    text-shadow: 0px 0px 3px black;
+    line-height: 1.5;
+    text-align: justify;
+    padding: 5px;
+    margin: 15px auto;
+    border-radius: 20px;
+    border: 5px ridge darkslategrey;
+	border-top: 20px ridge black;
+	border-bottom: 20px ridge black;
+	width:90%;
+}
+
+.col-sm-6{
+	width:50%;
+	flex: 0 0 50%;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 50%;
+    max-width: 50%;
+}
+
+.prof h3, img {
+    width: 100%;
+    text-align: center;
+}
+
+.prof hr {
+    width: 100%;
+    background: #023456;
+}
+
+#delete {
+    background: linear-gradient(45deg, #000, #023456);
+    color: #000305;
+    text-align: right;
+    margin: auto;
+    padding: 1% 5%;
+    width: 100%;
+    border-top-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
+#delete:hover {
+    color: orangered;
+    background: linear-gradient(45deg, orangered, #023456);
+}
+
+Button#delButton {
+    background: none;
+    color: #000305;
+    margin: auto;
+    padding: 5px 20px 5px;
+    width: auto;
+    border: none;
+}
+
+form#pagingform{
+	display:flex;
+	background:transparent;
+    overflow: auto;
+	padding:0px;
+	margin:auto;
+}
+
+button.pagingbutton {
+    width: auto;
+    padding: 5px;
+    margin: auto;
+    background: transparent;
+    border: none;
+}
+
+button#pagingbutton:active {
+    OPACITY: 0.4;
+}
+
+/**********************-JOBB_DIV-**********************/
+#jobbDiv {
+    background: linear-gradient(-45deg, #000, #023456);
+    color: white;
+    height: inherit;
+	width:22.5%;
+    padding:10px;
+}
+
+input.searchInput {
+    width: 79%;
+    height: 30px;
+	margin:unset;
+    float: left;
+    border-radius: 4px 0px 0px 4px;
+}
+
+button.searchButton {
+    width: 20%;
+    height: 30px;
+    float: right;
+    color: #023456;
+    background: radial-gradient(#000, #012640);
+    border: ridge black 0.5px;
+    border-radius: 0px 4px 4px 0px;
+}
+
+button.searchButton:hover {
+    color: orangered;
+    background: radial-gradient(#000000 30%, orangered);
+}
+
+select.searchSelect {
+    background: linear-gradient(black, transparent);
+    color: #989fb1;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    margin-bottom: 2px;
+    width: 100%;
+    font-weight: bold;
+}
+
+select.searchSelect:hover {
+    background: linear-gradient(0deg,black, transparent);
+    color: orangered;
+}
+
+
+/******************-ERROR_STYLE-*******************/
+div.message, div.error {
+    background: background: rgba(240,20,20,0.1);
+    color: #023456;
+    border: inset red 2px;
+    width: 90%;
+    font-size: 100%;
+    margin: auto;
+    padding: 15px;
+    text-align: center;
+    line-height: normal;
+    text-shadow: 1px 1px 1px black;
+}
+
+div.notice {
+    background: rgba(20,220,20,0.1);
+    border: inset 2px green;
+    color: green;
+    text-align: center;
+    width: 90%;
+    font-size: 100%;
+    margin: auto;
+    padding: 20px;
+    line-height: normal;
+    text-shadow: 1px 1px 1px black;
+}
+
+p.message, p.error {
+    background: rgba(240,20,20,0.1);
+    border: inset red 2px;
+    border-radius: 30px 30px 0px 30px;
+    width: 90%;
+    font-size: 100%;
+    line-height: normal;
+    margin: 10px auto;
+    padding: 15px;
+    color: red;
+    text-align: center;
+	text-shadow:1px 1px 1px black;
+}
+
+/*******************-FELTÃ–LTÃ‰S-**********************/
+#feltolt form {
+    padding: 10px;
+    display: block;
+    background: #b4b4b4;
+    color: #023456;
+    width: 90%;
+	border: ridge #023456;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+
+.myselect {
+    background: linear-gradient( black, #023456);
+    color: #b4b4b4;
+    padding: 10px;
+	margin: 10px 0px;
+    width: 100%;
+    font-size: 120%;
+    cursor: pointer;
+}
+
+.uploadDivs {
+    display: grid;
+	width:100%;
+}
+
+label.uploadLabels {
+    background: linear-gradient( black, #023456);
+    padding: 5px;
+    align-self: center;
+    margin: 25px auto 0px auto;
+    width:90%;
+    color: #c1c1c1;
+	border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+#feltolt option:hover {
+    background: #c1c1c1;
+    color: #023456;
+    font-size: 150%;
+}
+
+#feltolt input {
+	width: 90%;
+    margin: auto;
+    height: auto;
+    padding: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+#feltolt input:hover {
+    border: solid 2px #023456;
+    border-radius: 5px;
+	color:orangered;
+}
+
+#feltolt span {
+    text-shadow: 1px 1px 1px black;
+    font-size: 120%;
+}
+
+input#photofile {
+    background: linear-gradient(0deg, black, #023456);
+    border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+    color: #c1c1c1;
+    padding: 5px; 
+}
+
+/*-------------------------------RESZPONZIVITÃS--------------------------------*/ 
+@media only screen and (max-width: 581px) {
+    
+
+    #All {
+		height:87%;
+        margin: auto;
+        font-size: 80%;
+        text-align: center;
+		border-radius:20px;
+		padding:20px 2px;
+    }
+	
+	div#inAll{
+		display:block;
+	}
+
+    #balDiv {
+		display:none;
+    }
+	#balDiv2 {
+		display:block;
+		background: linear-gradient(45deg, #000, #023456);
+		width: 100%;
+		padding: 10px 0px;
+		overflow: auto;
+    }
+	
+	#balDiv2 a {
+    width: 99%;
+    margin-top: 10px;
+    padding: 20px 20px;
+    color: #9fafb9;
+    text-decoration: none;
+	}
+	
+	a.fa:after {
+		padding: 0px;
+	}
+
+    #balDiv2 a:hover {
+        color:orangered;
+    }
+
+    #tartalom {
+		min-height:400px;
+        max-height: 100%;
+		width:auto;
+        overflow: scroll;
+        padding: 20px 10px;
+		border-radius: 3%;
+    }
+
+    #jobbDiv {
+		display:none;
+        height: fit-content;
+		width:auto;
+        overflow: scroll;
+        padding: 10px;
+		border-top:1px black solid;
+		padding-bottom:0px;
+    }
+
+    select.searchSelect {
+        background: rgba(2,52,86,0.5);
+        color: #757575;
+        border: solid 0.1px;
+        border-radius: 8px;
+        width:49%;
+    }
+    select.searchButton {
+        background: rgba(2,52,86,0.5);
+        color: orangered;
+        border: ridge 0.1px orangered;
+        border-radius: 8px;
+    }
+
+    .prof {
+        background: linear-gradient(45deg, #000, #023456);
+        color: white;
+        text-shadow: 0px 2px 5px black;
+        padding: 5px;
+        margin: 10px 0px 10px 0px;
+        width:100%;
+    }
+
+    .prof hr {
+        margin: 5px;
+        width: unset;
+    }
+
+    #feltolt form {
+        width: 100%;
+        font-size: 120%;
+    }
+
+    #tartalom form {
+        width: 100%;
+    }
+
+    p.message, p.error {
+        width: 100%;
+    }
+
+    #keres {
+        visibility: visible;
+		display:block;
+    }
+
+   
+	div#sr{
+        display:block;
+    }
+	
+	div#sr form {
+		linear-gradient(0deg, black, transparent);
+		margin: auto;
+	}
+    
+    #ora {
+        visibility: none;
+    }
+}
+
+@media (min-width: 582px) and (max-width:1092px) {
+    header {
+        height: fit-content;
+        font-size: 80%;
+    }
+
+    header nav {
+        width: 100%;
+        float: none;
+		display:flex;
+    }
+
+    header nav a {
+        background: linear-gradient(0deg, #000, #023456);
+        color: #c1c1c1;
+        width: 25%;
+        padding: unset;
+    }
+
+    header nav a:hover {
+        background: linear-gradient(45deg, #000, #023456);
+        opacity: 0.6;
+        color: orangered;
+        padding-bottom: 20px;
+        padding-top: 20px;
+    }
+
+    header nava a:active {
+        background: #001831;
+        color: white;
+        padding-bottom: 10px;
+        padding-top: 10px;
+    }
+
+    header p.title {
+        background: linear-gradient( #000, #023456);
+        font-size: 200%;
+        width: 100%;
+        height: fit-content;
+        float: none;
+    }
+
+    #All {
+        max-width: 100%;
+        font-size: 70%;
+    }
+
+    #balDiv p {
+    }
+
+    #balDiv a {
+        padding: 10px;
+    }
+
+    #tartalom {
+    }
+
+    #jobbDiv {
+    }
+
+    #keres {
+        display: none;
+    }
+}
+
+@media (min-width: 1093px) {
+	body{
+		background-image: url("../images/system/background.jpg");
+		background-size:100%;
+		font-size:inherit;
+	}
+	
+	::-webkit-scrollbar{
+		width:10px;
+	}
+	
+    header {
+        width: 100%;
+		height:6%;
+		margin:unset;
+		display:inline-block;
+        z-index: 1;
+        top: 0;
+    }
+	
+	header p.title{
+		padding: 0px 10px;
+	}
+	
+	header nav{
+		height:100%;
+	}
+	
+	header nav a{
+		height:100%;
+		padding: 0px 30px;
+	}
+
+    #All{
+		height:88%;
+		margin:1% auto;
+		display:block;
+		-webkit-box-reflect: below;
+		background:rgba(0,0,0,0.5);
+    }
+	
+	#inAll{
+		max-height:100%;
+		display:inline-flex;
+		height:100%;
+		width:100%;
+		background:rgba(0,0,0,0.5);
+	}
+	
+	#balDiv{
+		height:inherit;
+		background:rgba(0,0,0,0.5);
+	}
+	#tartalom{
+		font-size:90%;
+		background:rgba(0,0,0,0);
+	}
+	#jobbDiv{
+		height:inherit;
+		background:rgba(0,0,0,0.5);
+	}
+
+    #keres {
+        display: none;
+    }
+
+    #balDiv form {
+        width: 100%;
+		padding:10px;
+    }
+
+    #balDiv button, input {
+        width: 100%;
+    }
+
+    #balDiv a {
+        width: 100%;
+    }
+	
+	.prof{
+		width:55%;
+		background: rgba(10,30,130,0.5);
+	}
+	footer{
+		display:none;
+	}
+}

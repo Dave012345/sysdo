@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en"
+      layout:decorator="layouts/index"
+      xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.w3.org/1999/xhtml"
+>
+
+<head>
+    <link rel="stylesheet" type="text/css" th:href="@{css/design.css}" />
+    <script th:src="@{js/navmenu.js}"></script>
+    <link rel="icon" th:href="@{images/system/laptop-icon.svg}" type="imagename/svg" size="16x16" />
+</head>
+
+<body>
+    <div layout:fragment="content">
+        <article>
+            <header style="margin:auto; box-shadow: 0px 0px 1px 1px #001831;">
+                <h1 th:text="${error}">Ez itt a gond</h1>
+            </header>
+
+            <section style="background:rgba(255,0,0,0.4);box-shadow: 0px 0px 1px 1px #001831; padding:5px;">
+                <p th:text="${message}">Ez az üzenet.</p>
+                <p th:text="${path}">Elérési út.</p>
+                <p th:text="${status}">Státusz</p>
+                <p th:text="${timestamp}">Időpont</p>
+            </section>
+        </article>
+    </div>
+</body>
+</html>

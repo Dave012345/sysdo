@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorator="layouts/index"
+      xmlns:sec="http://www.w3.org/1999/xhtml">
+
+    <body>
+
+        <div layout:fragment="content">
+
+            <p sec:authorize="isAnonymous()" class="message" th:text="#{messages.loginrequired.profile}">
+                Jelentkezzen be!
+            </p>
+
+            <div sec:authorize="isAuthenticated()">
+                <div th:if="${param.message}" th:text="#{messages.deletesuccess}" class="notice">Delete was succesfully!</div>
+
+                <div class="prof" th:each="user : ${authUser}">
+                    <h2>Profil adatok:</h2>
+                    <p th:text="#{profile.username } + ${user.username}">Felhasználónév:</p>
+                    <p th:text="#{profile.email } + ${user.email}">Email-cím:</p>
+                    <p th:text="#{profile.id } + ${user.id}">Azonosítószám:</p>
+                    <p th:text="#{profile.size } + ${size}">Hírdetései:</p>
+                </div>
+
+
+                <table th:each="device : ${devicesOfAuthUser}" class="prof">
+                    <tbody>
+                    <tr>
+                        <th>
+                            <h3 th:text="${device.devicename}">Device</h3>
+                        </th>
+                    </tr>
+                    <tr class="row">
+                        <td class="col-sm-6" id="tdiv1">
+                            <p th:text="${device.maker} + ' ' + ${device.model}">Maker model</p>
+                            <p th:text="${device.price} + ' - Ft'">Price</p>
+                            <p th:text="${device.location}">Location</p>
+                            <p th:text="${#dates.format(device.posted, 'yyyy-MM-dd HH:mm')}">Posted</p>
+                        </td>
+                        <td class="col-sm-6" id="tdiv2">
+                            <p th:text="${device.user.username}">User</p>
+                            <a th:href="@{tel:}+${device.phoneNumber}" th:text="${device.phoneNumber}">User</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p th:text="${device.shortDescription}">Short_Description</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p th:text="${device.longDescription}">Long_Description</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td th:switch="${device.imagename.length()}">
+                            <img th:case="'0'" th:src="@{images/system/sysdo-}+${device.devicename}+'.jpg'" alt=" filename nem elérhető" />
+                            <img th:case="*" th:src="@{/image?src=}+${device.imagename}" alt=" filename nem elérhető" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a id="delete" class="fa fa-trash" th:href="@{profile/deletedevice/}+${device.id}" th:text="#{profile.delete}">torol</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>
